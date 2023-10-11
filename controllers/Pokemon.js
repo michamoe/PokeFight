@@ -1,13 +1,14 @@
-import Pokemon from '../models/Pokemon.js';
+import Pokemon from "../models/Pokemon.js";
 
 export const getAllPokemons = async (req, res, next) => {
   try {
     const pokemons = await Pokemon.find();
-    console.log(pokemons)
+    console.log("Pokemons:", pokemons);
+
     if (!pokemons.length) {
       //   throw new Error();
       //   throw { message: 'book not found' };
-      throw { statusCode: 404, message: 'pokemon not found' };
+      throw { statusCode: 404, message: "pokemon not found" };
     }
     res.json(pokemons);
   } catch (error) {
