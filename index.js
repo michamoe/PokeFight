@@ -3,7 +3,7 @@ import "./db/server.js";
 import pokemonsRouter from "./routes/pokemonsrouters.js";
 
 const app = express();
-const port = 8000;
+const port = 8001;
 
 app.use(express.json());
 app.use("/pokemon", pokemonsRouter);
