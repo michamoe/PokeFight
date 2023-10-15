@@ -15,3 +15,20 @@ export const getAllPokemons = async (req, res, next) => {
     next(error);
   }
 };
+
+
+export const getPokemonById = async (req, res, next) => {
+  try {
+    const { id } = req.params; 
+    const pokemon = await Pokemon.findOne({ id }); 
+
+    if (!pokemon) {
+     
+      return res.status(404).json({ message: "Pokémon not found" });
+    }
+
+    res.json(pokemon); 
+  } catch (error) {
+    next(error);
+  }
+};
